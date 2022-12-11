@@ -3,7 +3,7 @@
  * main - program that prints all possible different combinations
  * of thress digits.
  *
- * Return: 0
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
