@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
  * main - program that prints all possible different combinations
  * of thress digits.
  *
