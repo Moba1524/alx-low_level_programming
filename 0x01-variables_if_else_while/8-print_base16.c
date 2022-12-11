@@ -19,6 +19,6 @@ int main(void)
 			c++;
 		}
 	}
-	putvhar('\n');
+	putchar('\n');
 	return (0);
 }
