@@ -1,14 +1,14 @@
-#include "main.sh"
+#include "main.h"
 
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
- */*
+ * Return: 0 nothihg, return void
+ */
 
 int main(void)
-{
 
+{
 	_putchar('_');
 	_putchar('p');
 	_putchar('u');
