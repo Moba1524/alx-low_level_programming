@@ -1,12 +1,14 @@
 #include "main.sh"
+
 /**
- * main - Entry point 
+ * main - Entry point
  *
- * Return: 0 nothing, return void
- */
+ * Return: Always 0 (Success)
+ */*
 
 int main(void)
 {
+
 	_putchar('_');
 	_putchar('p');
 	_putchar('u');
