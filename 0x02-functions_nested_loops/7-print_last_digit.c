@@ -7,7 +7,7 @@
  * Return: Always 0.
  */
 
-init print_last_digit(int n)
+int print_last_digit(int n)
 
 {
 	int last_digit;
@@ -22,7 +22,7 @@ init print_last_digit(int n)
 	else
 	{
 		last_digit = (n % 10);
-		_puthar (last_digit + '0');
+		_putchar (last_digit + '0');
 		return (last_digit);
 	}
 }
