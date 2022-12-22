@@ -5,7 +5,7 @@
 *in strings to a buffer.
 *Assumes that strings are never empty and
 *that numbers will always be positive, or 0.
-*Assumes there are only digits stored in the number string.
+*Assumes there are only digits stored in the number strings.
 *If result can be stored in the buffer,
 *returns a pointer to the result.
 *If result cannot be stored in the buffer, returns '0'.
@@ -22,7 +22,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 /**
 * add_strings - Adds the numbers stored in tow strings.
-* @n1: The string containing the firs number to be added.
+* @n1: The string containing the first number to be added.
 * @n2: The string containing the second number to be added.
 * @r: The buffer to store the result.
 * @r_index: The current index of the buffer.
@@ -39,7 +39,7 @@ char *add_strings(char *n1, char *n2, char *r, int r_index)
 	{
 		num = (*n1 - '0') + (*n2 - '0');
 		num += tens;
-		*(r = r_index) = (num % 10) + '0';
+		*(r + r_index) = (num % 10) + '0';
 		tens = num / 10;
 	}
 
