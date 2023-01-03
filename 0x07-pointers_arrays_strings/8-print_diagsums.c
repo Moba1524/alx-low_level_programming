@@ -9,7 +9,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i, size;
+	int i, size1;
 	unsigned int sumDiag1, sumDiag2;
 
 	size1 = 0;
@@ -18,9 +18,9 @@ void print_diagsums(int *a, int size)
 
 	size1 = (size * size) - 1;
 
-	for (i = 0; i <= size; i + (size + 1))
+	for (i = 0; i <= size; i = i + (size + 1))
 	{
-		sumDiag1 = sumDia1 + a[i];
+		sumDiag1 = sumDiag1 + a[i];
 	}
 	for (i = (size - 1); i < size1; i = i + (size - 1))
 	{
