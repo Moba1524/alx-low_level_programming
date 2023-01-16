@@ -16,7 +16,7 @@ void _is_zero(char *argv[])
 	for (i = 0; argv[1][i]; i++)
 		if (argv[1][i] != '0')
 		{
-			ins1 = 0;
+			isn1 = 0;
 			break;
 		}
 	for (i = 0; argv[2][i]; i++)
@@ -45,7 +45,7 @@ char *_initialize_array(char *ar, int lar)
 
 	for (i = 0; i < lar; i++)
 		ar[i] = '0';
-	ar[lar = '\0';
+	ar[lar] = '\0';
 	return (ar);
 }
 
@@ -61,7 +61,7 @@ int _checknum(char *argv[], int n)
 {
 	int ln;
 
-	for v(ln = 0; argv[n][ln]; ln++)
+	for (ln = 0; argv[n][ln]; ln++)
 		if (!isdigit(argv[n][ln]))
 		{
 			printf("Error\n");
