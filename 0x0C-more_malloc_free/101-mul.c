@@ -25,6 +25,7 @@ void _is_zero(char *argv[])
 			isn2 = 0;
 			break;
 		}
+
 	if (isn1 == 1 || isn2 == 1)
 	{
 		printf("0\n");
@@ -33,7 +34,7 @@ void _is_zero(char *argv[])
 }
 
 /**
- * _initialize_array - set memory to zero in a new array
+ * _initialize_array - set memery to zero in a new array
  * @ar: char array.
  * @lar: length of the char array.
  *
