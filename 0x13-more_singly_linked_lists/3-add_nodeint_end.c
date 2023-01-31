@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * add_nodeint_end - Adds a new node at the 
+ * add_nodeint_end - Adds a new node at the
  *                   end of a listint_t list.
  * @head: A pointer to the address of the
  *         head of the listint_t list.
