@@ -9,7 +9,7 @@
  *       node should be added - indices start at 0.
  * @n: The integer for the new node to contain.
  *
- * Return: if the function fails - NULL.
+ * Return: If the function fails - NULL.
  *         Otherwise - the address of the new node.
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
