@@ -7,7 +7,7 @@
  *         If little-endian - 1.
  */
 
-int get-endianness(void)
+int get_endianness(void)
 {
 	int num = 1;
 	char *endian = (char *)&num;
