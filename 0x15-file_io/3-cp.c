@@ -29,7 +29,7 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Closws file descriptors.
+ * close_file - Closes file descriptors.
  * @fd: The file descriptor to be closed.
  */
 void close_file(int fd)
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 }
 
 buffer = create_buffer(argv[2]);
-from = open(aegv[1], O_RDONLY);
+from = open(argv[1], O_RDONLY);
 r = read(from, buffer, 1024);
 to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
