@@ -122,7 +122,7 @@ void print_version(unsigned char *e_ident)
 
 	switch (e_ident[EI_VERSION])
 	{
-	case EV_CHRRENT:
+	case EV_CURRENT:
 		printf(" (current)\n");
 		break;
 	default:
@@ -150,7 +150,7 @@ void print_osabi(unsigned char *e_ident)
 	case ELFOSABI_NETBSD:
 		printf("UNIX - NetBSD\n");
 		break;
-	case ELFOSABI_LUNUX:
+	case ELFOSABI_LINUX:
 		printf("UNIX - Linux\n");
 		break;
 	case ELFOSABI_SOLARIS:
@@ -182,7 +182,7 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-	printf("  ABI Version:                      %d",
+	printf("  ABI Version:                       %d\n",
 		e_ident[EI_ABIVERSION]);
 }
 
@@ -196,24 +196,23 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-
-	printf("   Type:                            ");
+	printf("  Type:                              ");
 
 	switch (e_type)
 	{
-	case EI_NONE:
+	case ET_NONE:
 		printf("NONE (None)\n");
 		break;
-	case EI_REL:
+	case ET_REL:
 		printf("REL (Relocatable file)\n");
 		break;
-	case EI_EXEC:
+	case ET_EXEC:
 		printf("EXEC (Executable file)\n");
 		break;
-	case EI_DYN:
+	case ET_DYN:
 		printf("DYN (Shared object file)\n");
 		break;
-	case EI_CORE:
+	case ET_CORE:
 		printf("CORE (Core file)\n");
 		break;
 	default:
@@ -273,7 +272,7 @@ void close_elf(int elf)
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	EIf64_Ehdr *header;
+	Elf64_Ehdr *header;
 	int o, r;
 
 	o = open(argv[1], O_RDONLY);
@@ -282,14 +281,14 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	header = malloc(sizeof(EIf64_Ehdr));
+	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
 		close_elf(o);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	r = read(o, header, sizeof(EIf64_Ehdr));
+	r = read(o, header, sizeof(Elf64_Ehdr));
 	if (r == -1)
 	{
 		free(header);
@@ -302,6 +301,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	printf("ELF Header:\n");
 	print_magic(header->e_ident);
 	print_class(header->e_ident);
+	print_data(header->e_ident);
 	print_version(header->e_ident);
 	print_osabi(header->e_ident);
 	print_abi(header->e_ident);
