@@ -1,3 +1,8 @@
+/*
+ * File: 100-elf_header.c
+ * Auth: Brennan D Baraban
+ */
+
 #include <elf.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -50,7 +55,7 @@ void print_magic(unsigned char *e_ident)
 {
 	int index;
 
-	printf("  Magic:    ");
+	printf("  Magic:   ");
 
 	for (index = 0; index < EI_NIDENT; index++)
 	{
@@ -69,7 +74,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-	printf("  Class:                            ");
+	printf("  Class:                             ");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -101,10 +106,10 @@ void print_data(unsigned char *e_ident)
 		printf("none\n");
 		break;
 	case ELFDATA2LSB:
-		printf("2's complement, little endlen\n");
+		printf("2's complement, little endian\n");
 		break;
 	case ELFDATA2MSB:
-		printf("2's complement, big endlen\n");
+		printf("2's complement, big endian\n");
 		break;
 	default:
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
@@ -118,7 +123,7 @@ void print_data(unsigned char *e_ident)
 void print_version(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
-		e_ident[EI_VERSION]);
+	       e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
@@ -137,7 +142,7 @@ void print_version(unsigned char *e_ident)
  */
 void print_osabi(unsigned char *e_ident)
 {
-	printf("   OS/ABI:                           ");
+	printf("  OS/ABI:                            ");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -145,7 +150,7 @@ void print_osabi(unsigned char *e_ident)
 		printf("UNIX - System V\n");
 		break;
 	case ELFOSABI_HPUX:
-		printf("UNIX - HP_UX\n");
+		printf("UNIX - HP-UX\n");
 		break;
 	case ELFOSABI_NETBSD:
 		printf("UNIX - NetBSD\n");
@@ -183,7 +188,7 @@ void print_osabi(unsigned char *e_ident)
 void print_abi(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
-		e_ident[EI_ABIVERSION]);
+	       e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -260,8 +265,8 @@ void close_elf(int elf)
 }
 
 /**
- * main- Displays the information contained in the
- *       ELF header at the start of an ELF file.
+ * main - Displays the information contained in the
+ *        ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
@@ -293,7 +298,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	{
 		free(header);
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error: '%s': No such file\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
 
